@@ -1,4 +1,4 @@
-(function (window, undefined) {
+(function (undefined) {
     /**
      * Create a new instance of the test framework.
      * 
@@ -242,7 +242,32 @@
     }
 
     // Attach the test framework to "window"
-    window.ForEvolve = {
+    // postman.environment.ForEvolve = {
+    //     Tests: {
+    //         Engine: postmanTestFramework,
+    //         Utils: {
+    //             createGuid: guid
+    //         }
+    //     }
+    // };
+    //postman.environment.ForEvolve = {};
+    //postman.environment.ForEvolve.Tests = {};
+    //postman.environment.ForEvolve.Tests.Utils = {};
+    //postman.environment.ForEvolve.Tests.Utils.createGuid = guid;
+    postman.setEnvironmentVariable("ForEvolve", {
+        Tests: {
+            Engine: postmanTestFramework,
+            Utils: {
+                createGuid: guid
+            }
+        }
+    });
+
+    // postman.setGlobalVariable("ForEvolve.Tests.Engine", postmanTestFramework);
+    // postman.setGlobalVariable("ForEvolve.Tests.Utils", {
+    //     createGuid: guid
+    // });
+    return {
         Tests: {
             Engine: postmanTestFramework,
             Utils: {
@@ -250,5 +275,5 @@
             }
         }
     };
-}(window));
+}());
 
